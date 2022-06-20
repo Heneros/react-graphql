@@ -8,10 +8,23 @@ const schema = buildSchema(`
         age: Int
         posts: [Post]
     }
+
+    type Product {
+        id: ID
+        name: String
+        price: Int
+        weight: Int
+    }
     type Post {
         id: ID
         title: String
         content: String
+    }
+    input ProductInput{
+        id: ID
+        name: String!
+        price: Int!
+        weight: Int!
     }
     input UserInput {
         id: ID
@@ -27,9 +40,14 @@ const schema = buildSchema(`
     type Query {
         getAllUsers: [User]
         getUser(id: ID): User
+
+        getAllProducts: [Product]
+        getProduct(id: ID): Product
+  
     }
-    type Mutations {
+    type Mutation {
         createUser(input: UserInput): User
+        createProduct(input: ProductInput): Product
     }
 `)
 
