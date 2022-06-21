@@ -8,6 +8,9 @@ const App = () => {
     const [users, setUsers] = useState([]);
     console.log(data);
     useEffect(() => {
+        if (!loading) {
+            setUsers(data.getAllUsers);
+        }
 
     }, [data]);
 
